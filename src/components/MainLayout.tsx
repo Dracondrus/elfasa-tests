@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom"; // ✅ useNavigate
 import ELFASA from "../assets/elfasa__logotype.jpg";
 
 const MainLayout: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate(); // ✅ получаем функцию навигации
 
   const navigateTo = (path: string) => {
     setMenuOpen(false);
-    window.location.href = path;
+    navigate(path); // ✅ клиентская навигация без перезагрузки
   };
 
   return (
