@@ -5,6 +5,11 @@ import ELFASA from "../assets/elfasa__logotype.jpg";
 const MainLayout: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const navigateTo = (path: string) => {
+    setMenuOpen(false);
+    window.location.href = path;
+  };
+
   return (
     <div className="container">
       <div className="navbar">
@@ -21,12 +26,12 @@ const MainLayout: React.FC = () => {
           <span></span>
         </div>
         <ul className={`menu-overlay ${menuOpen ? "show" : ""}`}>
-              <li><a href="/" onClick={() => setMenuOpen(false)}>Bosh sahifa</a></li>
-          <li><a href="/falsafa" onClick={() => setMenuOpen(false)}>Falsafa</a></li>
-          <li><a href="/dinshunoslik" onClick={() => setMenuOpen(false)}>Dinshunoslik</a></li>
-          <li><a href="/english" onClick={() => setMenuOpen(false)}>English</a></li>
-          <li><a href="/algoritm" onClick={() => setMenuOpen(false)}>Algoritm</a></li>
-          <li><a href="/dasturlash" onClick={() => setMenuOpen(false)}>Dasturlash</a></li>
+          <li onClick={() => navigateTo("/")}>Bosh sahifa</li>
+          <li onClick={() => navigateTo("/falsafa")}>Falsafa</li>
+          <li onClick={() => navigateTo("/dinshunoslik")}>Dinshunoslik</li>
+          <li onClick={() => navigateTo("/english")}>English</li>
+          <li onClick={() => navigateTo("/algoritm")}>Algoritm</li>
+          <li onClick={() => navigateTo("/dasturlash")}>Dasturlash</li>
         </ul>
       </div>
 
